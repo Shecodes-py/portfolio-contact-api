@@ -30,7 +30,14 @@ SECRET_KEY = os.getenv('django_secret_key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["https://portfolio-contact-api-8iln.onrender.com", "localhost", "127.0.0.1", "portfolio-contact-api-8iln.onrender.com"]
+ALLOWED_HOSTS = [
+    "https://portfolio-contact-api-8iln.onrender.com", 
+    "localhost",
+    "127.0.0.1", 
+    "portfolio-contact-api-8iln.onrender.com",
+    "https://peace-udotong.vercel.app",
+    "peace-udotong.vercel.app",
+    ]
 
 
 # Application definition
@@ -153,5 +160,6 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080", # react 
     "http://127.0.0.1:8080", # react
     "http://peace-udotong.vercel.app",
+    'www.peace-udotong.vercel.app',
 ]
 
