@@ -161,6 +161,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:8080", # react
     "http://peace-udotong.vercel.app",
     'http://www.peace-udotong.vercel.app',
+    'https://peace-udotong.vercel.app',
 ]
 
 CORS_ALLOW_CREDENTIALS = True
