@@ -160,6 +160,6 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080", # react 
     "http://127.0.0.1:8080", # react
     "http://peace-udotong.vercel.app",
-    'www.peace-udotong.vercel.app',
+    'http://www.peace-udotong.vercel.app',
 ]
 
