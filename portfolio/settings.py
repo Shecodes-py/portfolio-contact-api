@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -24,12 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-kq(r-)_*&m_n!208(34qea*z11eny_x*oz42v70uq!jk-ef&w('
+SECRET_KEY = os.getenv('django_secret_key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://portfolio-contact-api-8iln.onrender.com", "localhost", "127.0.0.1", "portfolio-contact-api-8iln.onrender.com"]
 
 
 # Application definition
@@ -43,7 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     # Third-party apps
+    "corsheaders",
     'rest_framework',
+    'sendgrid_backend',
 
     # Local apps
     'service',
@@ -52,6 +55,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -82,11 +86,13 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    "default": dj_database_url.parse(
+        os.environ.get("DB_URL"),
+        conn_max_age=600,
+        ssl_require=True,
+    )
 }
 
 
@@ -132,9 +138,20 @@ EMAIL_HOST="smtp.sendgrid.net"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-EMAIL_HOST_USER = os.getenv('email_host')
-EMAIL_HOST_PASSWORD = os.getenv('email_host_password')
+# EMAIL_HOST_USER = os.getenv('email_host')
+# EMAIL_HOST_PASSWORD = os.getenv('email_host_password')
 
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = os.getenv('verified_sender_email')
 CONTACT_EMAIL = os.getenv('to_mail')
 SENDGRID_API_KEY = os.getenv('sendgrid_api_key')
+
+# cors settings
+CORS_ALLOWED_ORIGINS = [
+    "https://portfolio-contact-api-8iln.onrender.com",
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
+    "http://localhost:8080", # react 
+    "http://127.0.0.1:8080", # react
+    "http://peace-udotong.vercel.app",
+]
+

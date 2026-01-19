@@ -4,7 +4,7 @@ from .models import EmailMessage
 class ContactEmailSerializer(serializers.ModelSerializer):
     class Meta:
         model = EmailMessage
-        fields = ['name', 'email', 'message']
+        fields = ['id', 'name', 'email', 'message', 'sent_at']
 
     # Standard DRF validation is more concise
     def validate_name(self, value):
