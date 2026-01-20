@@ -34,9 +34,7 @@ ALLOWED_HOSTS = [
     "https://portfolio-contact-api-8iln.onrender.com", 
     "localhost",
     "127.0.0.1", 
-    "portfolio-contact-api-8iln.onrender.com",
     "https://peace-udotong.vercel.app",
-    "peace-udotong.vercel.app",
     ]
 
 
@@ -156,7 +154,7 @@ SENDGRID_API_KEY = os.getenv('sendgrid_api_key')
 CORS_ALLOWED_ORIGINS = [
     'https://peace-udotong.vercel.app',
     "https://portfolio-contact-api-8iln.onrender.com",
-    
+
     "http://localhost:8000",
     "http://127.0.0.1:8000",
     "http://localhost:8080", # react 
@@ -164,3 +162,5 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 CORS_ALLOW_CREDENTIALS = True
+
+APPEND_SLASH = False
