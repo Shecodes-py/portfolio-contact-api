@@ -154,14 +154,13 @@ SENDGRID_API_KEY = os.getenv('sendgrid_api_key')
 
 # cors settings
 CORS_ALLOWED_ORIGINS = [
+    'https://peace-udotong.vercel.app',
     "https://portfolio-contact-api-8iln.onrender.com",
+    
     "http://localhost:8000",
     "http://127.0.0.1:8000",
     "http://localhost:8080", # react 
     "http://127.0.0.1:8080", # react
-    "http://peace-udotong.vercel.app",
-    'http://www.peace-udotong.vercel.app',
-    'https://peace-udotong.vercel.app',
 ]
 
 CORS_ALLOW_CREDENTIALS = True
