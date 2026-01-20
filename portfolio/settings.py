@@ -35,6 +35,9 @@ ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1", 
     "https://peace-udotong.vercel.app",
+
+    "portfolio-contact-api-8iln.onrender.com",
+    "peace-udotong.vercel.app",
     ]
 
 
